@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const Boxes = props => {
-    
+    const {list} = props
     const container = {
         outline: '2px solid goldenrod',
         display: 'flex',
@@ -14,15 +14,15 @@ const Boxes = props => {
         outline: '2px solid black',
         width: '200px',
         height: '200px',
-        backgroundColor: 'red',
         flex:'0 0 auto'
     }
 
     return (
         <div style={container}>
-            { props.boxList.map( (item, i) => 
-                <div id={i} style={boxStyle}></div>
-            )
+            {
+                list.map( (dict,idx) =>
+                    <div style={{backgroundColor: `${dict.color}`,width:`${dict.size}px`,height:`${dict.size}px`,flex:'0 0 auto',outline:'2px solid goldenrod'}} key={idx}></div>
+                )
             }
         </div>
     )

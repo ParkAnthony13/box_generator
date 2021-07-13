@@ -1,15 +1,18 @@
 import './App.css';
 import Boxes from './components/Boxes'
 import Forms from './components/Forms'
+import React, { useState } from 'react';
+
 
 function App() {
 
-  const lists = []
+  const [list,setList] = useState([])
+
 
   return (
     <div className="App">
-      <Forms addlist={lists}/>
-      <Boxes boxList={lists}/>
+      <Forms list={list} setList={setList}/>
+      <Boxes list={list}/>
     </div>
   );
 }

@@ -1,16 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 
 const Forms = (props) => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        props.lists.append('box')
+    const {list,setList} = props
+
+    const [formState,setFormState] = useState(
+        {
+            color: "",
+            size: 0
+        }
+    )
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setList([...list,formState])
+        console.log(list)
     }
+    const handleChange = event => {
+        setFormState({...formState,
+            [event.target.name]:event.target.value})
+        console.log(formState)
+    }
+
+
+
+
     return(
         <div>
             <form onSubmit={handleSubmit}>
                 <label>Color: </label>
-                <input type="text" name="color"/>
-                <input type="submit" value="Add"/>
+                <input onChange={handleChange} type="text" name="color"/>
+                <input onChange={handleChange} type="number" name="size"/>
+                <input type="submit"/>
             </form>
         </div>
     )
