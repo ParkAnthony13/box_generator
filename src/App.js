@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import Boxes from './components/Boxes'
+import Forms from './components/Forms'
 
 function App() {
+
+  const lists = []
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Forms addlist={lists}/>
+      <Boxes boxList={lists}/>
     </div>
   );
 }
